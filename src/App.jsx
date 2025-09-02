@@ -5,6 +5,7 @@ import RrethMeje from './pages/RrethMeje.jsx';
 import Platforma from './pages/Platforma.jsx';
 import Kontakti from './pages/Kontakti.jsx';
 import Motto from './components/Motto.jsx';
+import Footer from './components/Footer.jsx';
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
       </div>
       <div id="kontakti">
         <Kontakti />
+      </div>
+      <div id='footer'>
+        <Footer />
       </div>
     </main>
   );

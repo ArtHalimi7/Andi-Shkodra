@@ -109,6 +109,14 @@ export const translations = {
     
     'contact.social.title': 'Na ndiqni',
     
+    // Footer section
+    'footer.description': 'Kandidat për Kuvendin Komunal të Gjilanit, i përkushtuar për të sjellë ndryshim pozitiv dhe për të punuar për të mirën e komunitetit.',
+    'footer.quickLinks': 'Lidhjet e Shpejta',
+    'footer.home': 'Ballina',
+    'footer.contactInfo': 'Informatat e Kontaktit',
+    'footer.copyright': 'Andi Shkodra. Të gjitha të drejtat e rezervuara.',
+    'footer.credit': 'Mundësuar nga',
+    
     // Language
     'language': 'Shqip',
   },
@@ -221,6 +229,14 @@ export const translations = {
     'contact.info.locationDetails': 'Gjilan, Kosovo',
     
     'contact.social.title': 'Follow Us',
+    
+    // Footer section
+    'footer.description': 'Candidate for the Municipal Assembly of Gjilan, dedicated to bringing positive change and working for the benefit of the community.',
+    'footer.quickLinks': 'Quick Links',
+    'footer.home': 'Home',
+    'footer.contactInfo': 'Contact Information',
+    'footer.copyright': 'Andi Shkodra. All rights reserved.',
+    'footer.credit': 'Powered by',
     
     // Language
     'language': 'English',
