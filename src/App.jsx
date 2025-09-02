@@ -6,6 +6,7 @@ import Platforma from './pages/Platforma.jsx';
 import Kontakti from './pages/Kontakti.jsx';
 import Motto from './components/Motto.jsx';
 import Footer from './components/Footer.jsx';
+import VideoDisplay from './components/VideoDisplay.jsx';
 
 const App = () => {
   return (
@@ -13,6 +14,9 @@ const App = () => {
       <Navbar />
       <div id="home">
         <Home />
+      </div>
+      <div id="video">
+        <VideoDisplay />
       </div>
       <div id="rreth-meje">
         <RrethMeje />
