@@ -97,7 +97,9 @@ export const translations = {
     'contact.form.message': 'Mesazhi',
     'contact.form.messagePlaceholder': 'Shkruani mesazhin tuaj këtu...',
     'contact.form.submit': 'Dërgo Mesazhin',
+    'contact.form.sending': 'Duke dërguar...',
     'contact.successMessage': 'Faleminderit për mesazhin tuaj! Do t\'ju kontaktojmë së shpejti.',
+    'contact.errorMessage': 'Ka ndodhur një gabim. Ju lutemi provoni përsëri më vonë.',
     
     'contact.info.title': 'Informacione Kontakti',
     'contact.info.phone': 'Telefon',
@@ -218,7 +220,9 @@ export const translations = {
     'contact.form.message': 'Message',
     'contact.form.messagePlaceholder': 'Write your message here...',
     'contact.form.submit': 'Send Message',
+    'contact.form.sending': 'Sending...',
     'contact.successMessage': 'Thank you for your message! We will contact you soon.',
+    'contact.errorMessage': 'An error occurred. Please try again later.',
     
     'contact.info.title': 'Contact Information',
     'contact.info.phone': 'Phone',

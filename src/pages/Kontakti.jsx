@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useTranslation } from '../hooks/useTranslation'
+import emailjs from '@emailjs/browser'
 
 const ContactInfoItem = ({ icon, title, content }) => {
   return (
@@ -19,12 +20,15 @@ const ContactInfoItem = ({ icon, title, content }) => {
 
 const Kontakti = () => {
   const { t } = useTranslation()
+  const form = useRef();
   const [formData, setFormData] = useState({
     emri: '',
     email: '',
     subjekti: '',
     mesazhi: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,19 +40,44 @@ const Kontakti = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to a backend
+    setLoading(true);
+    setSubmitStatus(null);
     
-    // Reset form after submission
-    setFormData({
-      emri: '',
-      email: '',
-      subjekti: '',
-      mesazhi: ''
+    // Using EmailJS to send the email
+    emailjs.sendForm(
+      'service_l33ug9r', // Your service ID
+      'template_8t959el', // Your template ID
+      form.current,
+      '-NWp731-hJ2KBhmcB' // Replace this with the actual public key from your EmailJS account
+    )
+    .then((result) => {
+      console.log('Email sent successfully:', result.text);
+      setLoading(false);
+      setSubmitStatus('success');
+      
+      // Reset form after submission
+      setFormData({
+        emri: '',
+        email: '',
+        subjekti: '',
+        mesazhi: ''
+      });
+      
+      // Show success message
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    })
+    .catch((error) => {
+      console.error('Error sending email:', error);
+      setLoading(false);
+      setSubmitStatus('error');
+      
+      // Show error message
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
     });
-    
-    // Show success message
-    alert(t('contact.successMessage'));
   };
 
   return (
@@ -72,7 +101,29 @@ const Kontakti = () => {
       <div className="max-w-6xl mx-auto flex flex-col lg:grid lg:grid-cols-3 gap-8">
         {/* Contact Form - Takes full width on mobile, 2/3 on desktop */}
         <div className="order-1 lg:order-1 lg:col-span-2 bg-white rounded-lg shadow-sm p-6 sm:p-8">
-          <form onSubmit={handleSubmit}>
+          {submitStatus === 'success' && (
+            <div className="bg-green-50 text-green-800 p-4 mb-6 rounded-md border border-green-200">
+              <p className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {t('contact.successMessage')}
+              </p>
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="bg-red-50 text-red-800 p-4 mb-6 rounded-md border border-red-200">
+              <p className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {t('contact.errorMessage')}
+              </p>
+            </div>
+          )}
+          
+          <form ref={form} onSubmit={handleSubmit}>
             {/* Inline fields for EMRI and EMAIL */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="flex-1">
@@ -138,9 +189,20 @@ const Kontakti = () => {
             <div>
               <button 
                 type="submit"
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-lg"
+                disabled={loading}
+                className={`w-full sm:w-auto px-6 sm:px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-lg flex items-center justify-center ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                {t('contact.form.submit')}
+                {loading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    {t('contact.form.sending')}
+                  </>
+                ) : (
+                  t('contact.form.submit')
+                )}
               </button>
             </div>
           </form>
