@@ -111,7 +111,7 @@ export const translations = {
     'contact.info.location': 'Lokacioni',
     'contact.info.locationDetails': 'Gjilan, Kosovë',
     
-    'contact.social.title': 'Na ndiqni',
+    'contact.social.title': 'Rrjete Sociale',
     
     // Footer section
     'footer.description': 'Kandidat për Kuvendin Komunal të Gjilanit, i përkushtuar për të sjellë ndryshim pozitiv dhe për të punuar për të mirën e komunitetit.',
@@ -236,7 +236,7 @@ export const translations = {
     'contact.info.location': 'Location',
     'contact.info.locationDetails': 'Gjilan, Kosovo',
     
-    'contact.social.title': 'Follow Us',
+    'contact.social.title': 'Social media',
     
     // Footer section
     'footer.description': 'Candidate for the Municipal Assembly of Gjilan, dedicated to bringing positive change and working for the benefit of the community.',
