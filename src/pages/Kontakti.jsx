@@ -22,10 +22,11 @@ const Kontakti = () => {
   const { t } = useTranslation()
   const form = useRef();
   const [formData, setFormData] = useState({
-    emri: '',
-    email: '',
-    subjekti: '',
-    mesazhi: ''
+    from_name: '',         // Changed from emri to from_name
+    from_email: '',        // Changed from email to from_email
+    phone: '',             // Added phone field
+    subject: '',           // Changed from subjekti to subject
+    message: ''            // Changed from mesazhi to message
   });
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -43,12 +44,18 @@ const Kontakti = () => {
     setLoading(true);
     setSubmitStatus(null);
     
+    // Add current timestamp for the sent_at field
+    const templateParams = {
+      ...formData,
+      sent_at: new Date().toLocaleString()
+    };
+    
     // Using EmailJS to send the email
-    emailjs.sendForm(
-      'service_l33ug9r', // Your service ID
-      'template_8t959el', // Your template ID
-      form.current,
-      '-NWp731-hJ2KBhmcB' // Replace this with the actual public key from your EmailJS account
+    emailjs.send(
+      'service_l33ug9r',   // Your service ID
+      'template_8t959el',  // Your template ID
+      templateParams,      // Pass all form data plus timestamp
+      '-NWp731-hJ2KBhmcB'  // Your public key
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
@@ -57,10 +64,11 @@ const Kontakti = () => {
       
       // Reset form after submission
       setFormData({
-        emri: '',
-        email: '',
-        subjekti: '',
-        mesazhi: ''
+        from_name: '',
+        from_email: '',
+        phone: '',
+        subject: '',
+        message: ''
       });
       
       // Show success message
@@ -123,16 +131,16 @@ const Kontakti = () => {
             </div>
           )}
           
-          <form ref={form} onSubmit={handleSubmit}>
-            {/* Inline fields for EMRI and EMAIL */}
+          <form onSubmit={handleSubmit}>
+            {/* Name and Email fields */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="flex-1">
-                <label htmlFor="emri" className="block text-gray-700 font-medium mb-2">{t('contact.form.name').toUpperCase()}</label>
+                <label htmlFor="from_name" className="block text-gray-700 font-medium mb-2">{t('contact.form.name').toUpperCase()}</label>
                 <input 
                   type="text" 
-                  id="emri" 
-                  name="emri" 
-                  value={formData.emri}
+                  id="from_name" 
+                  name="from_name" 
+                  value={formData.from_name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   placeholder={t('contact.form.namePlaceholder')}
@@ -141,12 +149,12 @@ const Kontakti = () => {
               </div>
               
               <div className="flex-1">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">{t('contact.form.email').toUpperCase()}</label>
+                <label htmlFor="from_email" className="block text-gray-700 font-medium mb-2">{t('contact.form.email').toUpperCase()}</label>
                 <input 
                   type="email" 
-                  id="email" 
-                  name="email" 
-                  value={formData.email}
+                  id="from_email" 
+                  name="from_email" 
+                  value={formData.from_email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   placeholder={t('contact.form.emailPlaceholder')}
@@ -155,14 +163,28 @@ const Kontakti = () => {
               </div>
             </div>
             
-            {/* SUBJEKTI field */}
+            {/* Phone field */}
             <div className="mb-6">
-              <label htmlFor="subjekti" className="block text-gray-700 font-medium mb-2">{t('contact.form.subject').toUpperCase()}</label>
+              <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">{t('contact.form.phone').toUpperCase()}</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                placeholder={t('contact.form.phonePlaceholder')}
+              />
+            </div>
+            
+            {/* Subject field */}
+            <div className="mb-6">
+              <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">{t('contact.form.subject').toUpperCase()}</label>
               <input 
                 type="text" 
-                id="subjekti" 
-                name="subjekti" 
-                value={formData.subjekti}
+                id="subject" 
+                name="subject" 
+                value={formData.subject}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 placeholder={t('contact.form.subjectPlaceholder')}
@@ -170,13 +192,13 @@ const Kontakti = () => {
               />
             </div>
             
-            {/* MESAZHI field */}
+            {/* Message field */}
             <div className="mb-8">
-              <label htmlFor="mesazhi" className="block text-gray-700 font-medium mb-2">{t('contact.form.message').toUpperCase()}</label>
+              <label htmlFor="message" className="block text-gray-700 font-medium mb-2">{t('contact.form.message').toUpperCase()}</label>
               <textarea 
-                id="mesazhi" 
-                name="mesazhi" 
-                value={formData.mesazhi}
+                id="message" 
+                name="message" 
+                value={formData.message}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 placeholder={t('contact.form.messagePlaceholder')}

@@ -92,6 +92,8 @@ export const translations = {
     'contact.form.namePlaceholder': 'Emri juaj',
     'contact.form.email': 'Email',
     'contact.form.emailPlaceholder': 'email@example.com',
+    'contact.form.phone': 'Telefoni',  // Fusha e telefonit e shtuar
+    'contact.form.phonePlaceholder': '+383 4x xxx xxx', // Vendosja e një shembulli për telefonin
     'contact.form.subject': 'Subjekti',
     'contact.form.subjectPlaceholder': 'Subjekti i mesazhit',
     'contact.form.message': 'Mesazhi',
@@ -103,9 +105,9 @@ export const translations = {
     
     'contact.info.title': 'Informacione Kontakti',
     'contact.info.phone': 'Telefon',
-    'contact.info.phoneNumber': '+383 44 123 456',
+    'contact.info.phoneNumber': '+383 48 590 795',
     'contact.info.email': 'Email',
-    'contact.info.emailAddress': 'andi.shkodra@email.com',
+    'contact.info.emailAddress': 'andishkodraa@gmail.com',
     'contact.info.location': 'Lokacioni',
     'contact.info.locationDetails': 'Gjilan, Kosovë',
     
@@ -215,6 +217,8 @@ export const translations = {
     'contact.form.namePlaceholder': 'Your name',
     'contact.form.email': 'Email',
     'contact.form.emailPlaceholder': 'email@example.com',
+    'contact.form.phone': 'Phone',  // Fusha e telefonit e shtuar
+    'contact.form.phonePlaceholder': '+383 4x xxx xxx', // Vendosja e një shembulli për telefonin
     'contact.form.subject': 'Subject',
     'contact.form.subjectPlaceholder': 'Message subject',
     'contact.form.message': 'Message',
@@ -226,9 +230,9 @@ export const translations = {
     
     'contact.info.title': 'Contact Information',
     'contact.info.phone': 'Phone',
-    'contact.info.phoneNumber': '+383 44 123 456',
+    'contact.info.phoneNumber': '+383 48 590 795',
     'contact.info.email': 'Email',
-    'contact.info.emailAddress': 'andi.shkodra@email.com',
+    'contact.info.emailAddress': 'andishkodraa@gmail.com',
     'contact.info.location': 'Location',
     'contact.info.locationDetails': 'Gjilan, Kosovo',
     
