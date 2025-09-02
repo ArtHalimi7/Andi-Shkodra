@@ -25,8 +25,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
       ),
-      title: "Infrastruktura Urbane",
-      description: "Përmirësim i rrugëve, sistemit të ujësjellësit dhe ndriçimit publik për një jetë më të mirë."
+      title: t('platform.item1.title'),
+      description: t('platform.item1.description')
     },
     {
       icon: (
@@ -34,8 +34,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
-      title: "Transparenca dhe Pjesëmarrja",
-      description: "Vendimmarrje transparente dhe rritje e pjesëmarrjes së qytetarëve në proceset vendore."
+      title: t('platform.item2.title'),
+      description: t('platform.item2.description')
     },
     {
       icon: (
@@ -43,8 +43,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Mjedisi dhe Qëndrueshmëria",
-      description: "Mbrojtja e mjedisit dhe zhvillimi i qëndrueshëm për brezat e ardhshëm."
+      title: t('platform.item3.title'),
+      description: t('platform.item3.description')
     },
     {
       icon: (
@@ -53,8 +53,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12 12 0 01.665 1.192A11.952 11.952 0 0012 20.5c-5.25 0-9.637-3.366-11.298-8.072a11.944 11.944 0 01.656-1.428L12 14z" />
         </svg>
       ),
-      title: "Arsimi dhe Rinia",
-      description: "Përkrahje për arsimin cilësor dhe krijimi i mundësive për të rinjtë."
+      title: t('platform.item4.title'),
+      description: t('platform.item4.description')
     },
     {
       icon: (
@@ -62,8 +62,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
         </svg>
       ),
-      title: "Shëndetësia dhe Mirëqenia",
-      description: "Përmirësim i shërbimeve shëndetësore dhe mbështetje për grupet në nevojë."
+      title: t('platform.item5.title'),
+      description: t('platform.item5.description')
     },
     {
       icon: (
@@ -71,8 +71,8 @@ const Platforma = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      title: "Ekonomia Lokale",
-      description: "Promovimi i bizneseve lokale dhe krijimi i vendeve të reja të punës."
+      title: t('platform.item6.title'),
+      description: t('platform.item6.description')
     }
   ];
 
@@ -81,15 +81,15 @@ const Platforma = () => {
       {/* Header Section */}
       <div className="text-center mb-10 sm:mb-16">
         <div className="inline-block px-3 py-1 rounded-full border border-red-500 text-red-500 text-sm mb-4">
-          Platforma
+          {t('platform.label')}
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-          Platforma Ime
+          {t('platform.title')}
         </h1>
         
         <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-2">
-          Prioritetet e mia për zhvillimin e komunitetit tonë dhe krijimin e një të ardhmeje më të mirë për të gjithë
+          {t('platform.description')}
         </p>
       </div>
       

@@ -55,8 +55,28 @@ export const translations = {
     'about.stats.projects.text': 'Projekte të Realizuara',
     
     // Platform section
-    'platform.title': 'Platforma ime',
+    'platform.label': 'Platforma',
+    'platform.title': 'Platforma Ime',
     'platform.subtitle': 'Objektivat dhe vizioni im',
+    'platform.description': 'Prioritetet e mia për zhvillimin e komunitetit tonë dhe krijimin e një të ardhmeje më të mirë për të gjithë',
+    
+    'platform.item1.title': 'Infrastruktura Urbane',
+    'platform.item1.description': 'Përmirësim i rrugëve, sistemit të ujësjellësit dhe ndriçimit publik për një jetë më të mirë.',
+    
+    'platform.item2.title': 'Transparenca dhe Pjesëmarrja',
+    'platform.item2.description': 'Vendimmarrje transparente dhe rritje e pjesëmarrjes së qytetarëve në proceset vendore.',
+    
+    'platform.item3.title': 'Mjedisi dhe Qëndrueshmëria',
+    'platform.item3.description': 'Mbrojtja e mjedisit dhe zhvillimi i qëndrueshëm për brezat e ardhshëm.',
+    
+    'platform.item4.title': 'Arsimi dhe Rinia',
+    'platform.item4.description': 'Përkrahje për arsimin cilësor dhe krijimi i mundësive për të rinjtë.',
+    
+    'platform.item5.title': 'Shëndetësia dhe Mirëqenia',
+    'platform.item5.description': 'Përmirësim i shërbimeve shëndetësore dhe mbështetje për grupet në nevojë.',
+    
+    'platform.item6.title': 'Ekonomia Lokale',
+    'platform.item6.description': 'Promovimi i bizneseve lokale dhe krijimi i vendeve të reja të punës.',
     
     // Contact section
     'contact.title': 'Na kontaktoni',
@@ -124,8 +144,28 @@ export const translations = {
     'about.stats.projects.text': 'Projects Completed',
     
     // Platform section
+    'platform.label': 'Platform',
     'platform.title': 'My Platform',
     'platform.subtitle': 'My objectives and vision',
+    'platform.description': 'My priorities for developing our community and creating a better future for everyone',
+    
+    'platform.item1.title': 'Urban Infrastructure',
+    'platform.item1.description': 'Improvement of roads, water system, and public lighting for a better quality of life.',
+    
+    'platform.item2.title': 'Transparency and Participation',
+    'platform.item2.description': 'Transparent decision-making and increasing citizen participation in local processes.',
+    
+    'platform.item3.title': 'Environment and Sustainability',
+    'platform.item3.description': 'Environmental protection and sustainable development for future generations.',
+    
+    'platform.item4.title': 'Education and Youth',
+    'platform.item4.description': 'Support for quality education and creating opportunities for young people.',
+    
+    'platform.item5.title': 'Healthcare and Wellbeing',
+    'platform.item5.description': 'Improvement of healthcare services and support for groups in need.',
+    
+    'platform.item6.title': 'Local Economy',
+    'platform.item6.description': 'Promotion of local businesses and creation of new job opportunities.',
     
     // Contact section
     'contact.title': 'Contact us',
