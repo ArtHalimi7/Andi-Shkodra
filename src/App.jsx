@@ -10,6 +10,7 @@ import VideoDisplay from './components/VideoDisplay.jsx';
 import Timeline from './components/Timeline.jsx';
 import VotingNumber from './components/VotingNumber.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import Gallery from './components/Gallery.jsx';
 
 
 const App = () => {
@@ -27,6 +28,9 @@ const App = () => {
       </div>
       <div id="timeline">
         <Timeline />
+      </div>
+      <div id="gallery">
+        <Gallery />
       </div>
       <div id="platforma">
         <Platforma />

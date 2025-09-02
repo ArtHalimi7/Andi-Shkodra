@@ -4,8 +4,8 @@ export const translations = {
     'about': 'Rreth meje',
     'platform': 'Platforma',
     'contact': 'Kontakti',
-    'candidate': 'Kandidat për Kuvendin Komunal',
-    
+    'candidate': 'Kandidat për Kuvendin Komunal të Gjilanit',
+
     // Home section
     'hero.description': 'Një avokat i përkushtuar për ndryshim, i angazhuar për t\'i shërbyer komunitetit dhe për të punuar drejt një të ardhmeje më të mirë për të gjithë qytetarët e komunës sonë.',
     'hero.cta.platform': 'Shiko Platformën Time',
@@ -15,11 +15,11 @@ export const translations = {
     'about.title': 'Rreth meje',
     'about.description': 'Biografia dhe eksperienca ime',
     'about.biography': 'Biografia',
-    'about.shortDescription': 'Student i pasionuar i shkencave politike me përvojë në udhëheqje, koordinim ekipor dhe fuqizim të rinisë.',
-    'about.paragraph1': 'Jam student i shkencave politike me pasion për udhëheqjen, koordinimin e ekipit dhe fuqizimin e rinisë. Si kryetar i një organizate rinore, kam fituar përvojë të vlefshme në menaxhimin e projekteve, avokatimin dhe fjalimin publik.',
-    'about.paragraph2': 'Jam i përkushtuar ndaj krijimit të një ndikimi pozitiv në shoqëri dhe jam duke kërkuar mundësi që më lejojnë të rritem si udhëheqës duke kontribuar në iniciativa me kuptim.',
-    'about.paragraph3': 'Përmes punës sime në Zyrën e Çështjeve Studentore në UBT dhe udhëheqjes së organizatës "Fuqia e Bashkimit Rinor", kam zhvilluar aftësi të forta organizative dhe komunikuese.',
-    'about.keyExperiences': 'Përvojat Kryesore',
+    'about.shortDescription': 'I diplomuar në shkencat politike me përvojë në udhëheqje, koordinim ekipor dhe fuqizim të rinisë.',
+    'about.paragraph1': 'Jam i diplomuar në Shkencat Politike në Universitetin për Biznes dhe Teknologji (UBT), me përvojë të gjerë në udhëheqje, menaxhim projektesh dhe angazhim qytetar. Për dy vite kam shërbyer si kryetar i organizatës rinore “Fuqia e Bashkimit Rinor”, ku kam udhëhequr iniciativa që fuqizojnë të rinjtë, nxisin pjesëmarrjen e tyre aktive dhe kontribuojnë në zhvillimin e komunitetit.',
+    'about.paragraph2': 'Përmes punës sime në Zyrën e Çështjeve Studentore në UBT dhe angazhimeve të ndryshme shoqërore, kam ndërtuar aftësi të forta në organizim, komunikim dhe bashkëpunim ndër-institucional.',
+    'about.paragraph3':  'Jam i përkushtuar që përvojën time akademike dhe praktike ta shndërroj në vizion dhe veprim konkret politik, duke u angazhuar për transparencë, zhvillim dhe pjesëmarrje të barabartë për çdo qytetar.',
+    'about.keyExperiences': 'Përvoja',
     
     'about.experience1.title': 'Student Affairs Office - UBT',
     'about.experience1.period': 'Prill 2024 - Janar 2025',
@@ -33,7 +33,7 @@ export const translations = {
     'about.experience3.period': 'Mars - Nëntor 2020',
     'about.experience3.description': 'Mbështetja e studentëve gjatë pandemisë COVID-19 në bashkëpunim me Ambasadën Japoneze.',
     
-    'about.educationExperience': 'Arsimimi & Përvojat',
+    'about.educationExperience': 'Arsimimi & Eksperienca',
     
     'about.education.title': 'Shkenca Politike - UBT',
     'about.education.period': 'Tetor 2022 - Aktual',
@@ -75,7 +75,7 @@ export const translations = {
     'platform.item3.description': 'Mbrojtja e mjedisit dhe zhvillimi i qëndrueshëm për brezat e ardhshëm.',
     
     'platform.item4.title': 'Arsimi dhe Rinia',
-    'platform.item4.description': 'Përkrahje për arsimin cilësor dhe krijimi i mundësive për të rinjtë.',
+    'platform.item4.description': 'Investim në arsim cilësor, modernizim i infrastrukturës shkollore dhe krijimi i mundësive të reja për zhvillimin profesional të të rinjve.',
     
     'platform.item5.title': 'Shëndetësia dhe Mirëqenia',
     'platform.item5.description': 'Përmirësim i shërbimeve shëndetësore dhe mbështetje për grupet në nevojë.',
@@ -183,6 +183,11 @@ export const translations = {
     'votingNumber.lookFor': 'Voto për numrin',
     'votingNumber.instruction': 'Në fletëvotim, kërkoni numrin 35 për të votuar për Andi Shkodrën',
     'votingNumber.learnMore': 'Mëso më shumë për votimin',
+    
+    // Gallery section
+    'gallery.label': 'Galeria',
+    'gallery.title': 'Galeria e Fotografive',
+    'gallery.description': 'Një përmbledhje e momenteve nga eventet komunitare, takimet dhe aktivitetet.',
   },
   en: {
     // Navbar
@@ -200,7 +205,7 @@ export const translations = {
     'about.title': 'About me',
     'about.description': 'My biography and experience',
     'about.biography': 'Biography',
-    'about.shortDescription': 'Passionate political science student with experience in leadership, team coordination, and youth empowerment.',
+    'about.shortDescription': 'Passionate political science graduate with experience in leadership, team coordination, and youth empowerment.',
     'about.paragraph1': 'I am a political science student with a passion for leadership, team coordination, and youth empowerment. As the chair of a youth organization, I have gained valuable experience in project management, advocacy, and public speaking.',
     'about.paragraph2': 'I am dedicated to creating a positive impact on society and seeking opportunities that allow me to grow as a leader while contributing to meaningful initiatives.',
     'about.paragraph3': 'Through my work at the Student Affairs Office at UBT and leadership of the "Youth Unity Power" organization, I have developed strong organizational and communication skills.',
@@ -260,7 +265,7 @@ export const translations = {
     'platform.item3.description': 'Environmental protection and sustainable development for future generations.',
     
     'platform.item4.title': 'Education and Youth',
-    'platform.item4.description': 'Support for quality education and creating opportunities for young people.',
+    'platform.item4.description': 'Investment in quality education, modernization of school infrastructure, and creation of new opportunities for youth professional development.',
     
     'platform.item5.title': 'Healthcare and Wellbeing',
     'platform.item5.description': 'Improvement of healthcare services and support for groups in need.',
@@ -368,5 +373,10 @@ export const translations = {
     'votingNumber.lookFor': 'Vote for number',
     'votingNumber.instruction': 'On the ballot, look for number 35 to vote for Andi Shkodra',
     'votingNumber.learnMore': 'Learn more about voting',
+    
+    // Gallery section
+    'gallery.label': 'Gallery',
+    'gallery.title': 'Photo Gallery',
+    'gallery.description': 'A collection of moments from community events, meetings, and activities.',
   }
 };
