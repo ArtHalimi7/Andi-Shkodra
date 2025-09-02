@@ -7,9 +7,9 @@ export const translations = {
     'candidate': 'Kandidat për Kuvendin Komunal',
     
     // Home section
-    'welcome': 'Mirë se vini',
-    'hero.title': 'Së bashku për ndryshim',
-    'hero.subtitle': 'Për një të ardhme më të mirë',
+    'hero.description': 'Një avokat i përkushtuar për ndryshim, i angazhuar për t\'i shërbyer komunitetit dhe për të punuar drejt një të ardhmeje më të mirë për të gjithë qytetarët e komunës sonë.',
+    'hero.cta.platform': 'Shiko Platformën Time',
+    'hero.cta.contact': 'Kontaktoni',
     
     // About section
     'about.title': 'Rreth meje',
@@ -37,9 +37,9 @@ export const translations = {
     'candidate': 'Candidate for Municipal Assembly',
     
     // Home section
-    'welcome': 'Welcome',
-    'hero.title': 'Together for change',
-    'hero.subtitle': 'For a better future',
+    'hero.description': 'A dedicated advocate for change, committed to serving the community and working towards a better future for all citizens of our municipality.',
+    'hero.cta.platform': 'View My Platform',
+    'hero.cta.contact': 'Get in Touch',
     
     // About section
     'about.title': 'About me',
