@@ -36,7 +36,7 @@ export const translations = {
     'about.educationExperience': 'Arsimimi & Përvojat',
     
     'about.education.title': 'Shkenca Politike - UBT',
-    'about.education.period': 'Tetor 2022 - Janar 2025',
+    'about.education.period': 'Tetor 2022 - Aktual',
     
     'about.leadership.title': 'Kryetar Organizate',
     'about.leadership.organization': 'Fuqia e Bashkimit Rinor',
@@ -221,7 +221,7 @@ export const translations = {
     'about.educationExperience': 'Education & Experience',
     
     'about.education.title': 'Political Science - UBT',
-    'about.education.period': 'October 2022 - January 2025',
+    'about.education.period': 'October 2022 - Actual',
 
     'about.leadership.title': 'Organization Chair',
     'about.leadership.organization': 'Youth Unity Power',
