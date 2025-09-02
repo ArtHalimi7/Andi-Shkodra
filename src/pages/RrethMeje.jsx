@@ -1,8 +1,88 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 
 const RrethMeje = () => {
   const { t } = useTranslation()
+  
+  // State for slider
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [slidesToShow, setSlidesToShow] = useState(3)
+  
+  // Update slides to show based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1)
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2)
+      } else {
+        setSlidesToShow(3)
+      }
+    }
+    
+    // Initial check
+    handleResize()
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  
+  // Certificate data
+  const certificates = [
+    {
+      date: 'about.certificate1.date',
+      organization: 'about.certificate1.organization',
+      description: 'about.certificate1.description'
+    },
+    {
+      date: 'about.certificate2.date',
+      organization: 'about.certificate2.organization',
+      description: 'about.certificate2.description'
+    },
+    {
+      date: 'about.certificate3.date',
+      organization: 'about.certificate3.organization',
+      description: 'about.certificate3.description'
+    },
+    {
+      date: 'about.certificate4.date',
+      organization: 'about.certificate4.organization',
+      description: 'about.certificate4.description'
+    },
+    {
+      date: 'about.certificate5.date',
+      organization: 'about.certificate5.organization',
+      description: 'about.certificate5.description'
+    },
+    {
+      date: 'about.certificate6.date',
+      organization: 'about.certificate6.organization',
+      description: 'about.certificate6.description'
+    },
+    {
+      date: 'about.award1.date',
+      organization: 'about.award1.organization',
+      description: 'about.award1.description',
+      isAward: true
+    },
+    {
+      date: 'about.certificate7.date',
+      organization: 'about.certificate7.organization',
+      description: 'about.certificate7.description'
+    }
+  ]
+  
+  const totalSlides = certificates.length
+  const maxSlide = totalSlides - slidesToShow
+  
+  const nextSlide = () => {
+    setCurrentSlide(current => Math.min(current + 1, maxSlide))
+  }
+  
+  const prevSlide = () => {
+    setCurrentSlide(current => Math.max(current - 1, 0))
+  }
   
   return (
     <div className="container mx-auto px-4 py-10">
@@ -150,123 +230,86 @@ const RrethMeje = () => {
             {t('about.achievementsTitle')}
           </h2>
           
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
             {t('about.achievementsDescription')}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Certificate 1 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate1.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate1.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate1.description')}</p>
+        {/* Slider Controls */}
+        <div className="flex justify-between items-center mb-6">
+          <div className="text-lg font-semibold text-gray-700 hidden md:block">
+            {t('about.certificatesAndAwards') || 'Certificates & Awards'}
           </div>
-
-          {/* Certificate 2 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate2.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate2.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate2.description')}</p>
+          
+          <div className="flex gap-3">
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 0}
+              className={`p-2 rounded-full border ${currentSlide === 0 ? 'text-gray-400 border-gray-200' : 'text-red-500 border-red-500 hover:bg-red-50'}`}
+              aria-label="Previous slide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              disabled={currentSlide >= maxSlide}
+              className={`p-2 rounded-full border ${currentSlide >= maxSlide ? 'text-gray-400 border-gray-200' : 'text-red-500 border-red-500 hover:bg-red-50'}`}
+              aria-label="Next slide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
-
-          {/* Certificate 3 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
+        </div>
+        
+        {/* Slider Container */}
+        <div className="relative overflow-hidden">
+          <div 
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)` }}
+          >
+            {certificates.map((cert, index) => (
+              <div 
+                key={index}
+                className={`min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-2 ${slidesToShow === 1 ? 'px-0' : 'px-2'}`}
+                style={{ flex: `0 0 ${100 / slidesToShow}%` }}
+              >
+                <div className={`border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow h-full ${cert.isAward ? 'bg-red-50' : ''}`}>
+                  <div className="flex items-center mb-4">
+                    <div className={`${cert.isAward ? 'bg-red-100' : 'bg-red-50'} rounded-full p-2 mr-3`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${cert.isAward ? 'text-red-600' : 'text-red-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        {cert.isAward ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        )}
+                      </svg>
+                    </div>
+                    <span className={`text-xs ${cert.isAward ? 'bg-red-100 text-red-600' : 'bg-red-50 text-red-500'} rounded-full border ${cert.isAward ? 'border-red-200' : 'border-red-200'} px-2 py-0.5`}>
+                      {t(cert.date)}
+                    </span>
+                  </div>
+                  <h3 className="font-medium mb-2">{t(cert.organization)}</h3>
+                  <p className={`text-sm text-gray-600 ${cert.isAward ? 'font-semibold' : ''}`}>{t(cert.description)}</p>
+                </div>
               </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate3.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate3.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate3.description')}</p>
+            ))}
           </div>
-
-          {/* Certificate 4 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate4.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate4.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate4.description')}</p>
-          </div>
-
-          {/* Certificate 5 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate5.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate5.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate5.description')}</p>
-          </div>
-
-          {/* Certificate 6 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate6.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate6.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate6.description')}</p>
-          </div>
-
-          {/* Award 1 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-red-50">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-100 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-100 text-red-600 rounded-full border border-red-200 px-2 py-0.5">{t('about.award1.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.award1.organization')}</h3>
-            <p className="text-sm text-gray-600 font-semibold">{t('about.award1.description')}</p>
-          </div>
-
-          {/* Certificate 7 */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center mb-4">
-              <div className="bg-red-50 rounded-full p-2 mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <span className="text-xs bg-red-50 text-red-500 rounded-full border border-red-200 px-2 py-0.5">{t('about.certificate7.date')}</span>
-            </div>
-            <h3 className="font-medium mb-2">{t('about.certificate7.organization')}</h3>
-            <p className="text-sm text-gray-600">{t('about.certificate7.description')}</p>
-          </div>
+        </div>
+        
+        {/* Pagination Indicator (optional) */}
+        <div className="flex justify-center mt-6 gap-2">
+          {Array.from({length: maxSlide + 1}).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full ${currentSlide === index ? 'bg-red-500' : 'bg-gray-300'}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </div>

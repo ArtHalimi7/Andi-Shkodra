@@ -57,6 +57,7 @@ export const translations = {
     'about.honorsAndAwards': 'Nderimet dhe Çmimet',
     'about.achievementsTitle': 'Arritjet dhe Certifikimet',
     'about.achievementsDescription': 'Certifikatat, trajnimet dhe çmimet që kam fituar gjatë karrierës sime profesionale dhe aktivizmit shoqëror.',
+    'about.certificatesAndAwards': 'Certifikatat dhe Çmimet',
     
     // Platform section
     'platform.label': 'Platforma',
@@ -160,6 +161,28 @@ export const translations = {
     'about.certificate7.date': 'Shkurt 2022',
     'about.certificate7.organization': 'LIZA-R',
     'about.certificate7.description': 'Trajnim për: Promovimin e vullnetarizmit dhe përfshirjen e rinisë së margjinalizuar, financuar nga MKRS e Kosovës.',
+    
+    // Timeline section
+    'timeline.label': 'Kronologjia',
+    'timeline.title': 'Rrugëtimi Im Politik',
+    'timeline.description': 'Një vështrim i shkurtër i udhëtimit tim në shërbim të komunitetit dhe angazhimit politik.',
+    
+    'timeline.event1.title': 'Kandidatë për Kuvendin Komunal',
+    'timeline.event1.description': 'Nominim zyrtar si kandidat për Kuvendin Komunal të Gjilanit, përfaqësues i qytetarëve dhe zëri i ndryshimit.',
+    
+    'timeline.event2.title': 'Kryetar i Organizatës',
+    'timeline.event2.description': 'Udhëheqja e "Fuqia e Bashkimit Rinor" dhe implementimi i projekteve të shumta për të rinjtë dhe komunitetin.',
+    
+    'timeline.event3.title': 'Koordinator i Projektit #SkaMaLehte',
+    'timeline.event3.description': 'Koordinimi i nismës për mbështetjen e studentëve gjatë pandemisë COVID-19, duke ofruar ndihmë dhe mbështetje.',
+    
+    'timeline.event4.title': 'Aktivist Rinor',
+    'timeline.event4.description': 'Fillimi i angazhimit në aktivizëm dhe nisma për fuqizimin e të rinjve në komunitet.',
+    
+    // VotingNumber component
+    'votingNumber.lookFor': 'Voto për numrin',
+    'votingNumber.instruction': 'Në fletëvotim, kërkoni numrin 35 për të votuar për Andi Shkodrën',
+    'votingNumber.learnMore': 'Mëso më shumë për votimin',
   },
   en: {
     // Navbar
@@ -219,6 +242,7 @@ export const translations = {
     'about.honorsAndAwards': 'Honors and Awards',
     'about.achievementsTitle': 'Achievements and Certifications',
     'about.achievementsDescription': 'Certificates, trainings, and awards I have earned throughout my professional career and social activism.',
+    'about.certificatesAndAwards': 'Certificates and Awards',
     
     // Platform section
     'platform.label': 'Platform',
@@ -322,5 +346,27 @@ export const translations = {
     'about.certificate7.date': 'Feb 2022',
     'about.certificate7.organization': 'LIZA-R',
     'about.certificate7.description': 'Training on: Promoting volunteerism and involving marginalized youth, funded by MKRS of Kosovo.',
+    
+    // Timeline section
+    'timeline.label': 'Timeline',
+    'timeline.title': 'My Political Journey',
+    'timeline.description': 'A brief overview of my journey in community service and political engagement.',
+    
+    'timeline.event1.title': 'Municipal Assembly Candidacy',
+    'timeline.event1.description': 'Official nomination as a candidate for Gjilan Municipal Assembly, representing citizens and being a voice for change.',
+    
+    'timeline.event2.title': 'Organization Chairman',
+    'timeline.event2.description': 'Leading "Youth Unity Power" and implementing numerous projects for youth and the community.',
+    
+    'timeline.event3.title': 'Project Coordinator #SkaMaLehte',
+    'timeline.event3.description': 'Coordinating the initiative to support students during the COVID-19 pandemic, providing help and assistance.',
+    
+    'timeline.event4.title': 'Youth Activist',
+    'timeline.event4.description': 'Beginning of engagement in activism and initiatives for youth empowerment in the community.',
+    
+    // VotingNumber component
+    'votingNumber.lookFor': 'Vote for number',
+    'votingNumber.instruction': 'On the ballot, look for number 35 to vote for Andi Shkodra',
+    'votingNumber.learnMore': 'Learn more about voting',
   }
 };

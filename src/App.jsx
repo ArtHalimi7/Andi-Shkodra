@@ -7,6 +7,8 @@ import Kontakti from './pages/Kontakti.jsx';
 import Motto from './components/Motto.jsx';
 import Footer from './components/Footer.jsx';
 import VideoDisplay from './components/VideoDisplay.jsx';
+import Timeline from './components/Timeline.jsx';
+import VotingNumber from './components/VotingNumber.jsx';
 
 
 const App = () => {
@@ -22,6 +24,9 @@ const App = () => {
       <div id="rreth-meje">
         <RrethMeje />
       </div>
+      <div id="timeline">
+        <Timeline />
+      </div>
       <div id="platforma">
         <Platforma />
       </div>
@@ -34,6 +39,7 @@ const App = () => {
       <div id='footer'>
         <Footer />
       </div>
+      <VotingNumber />
     </main>
   );
 }
