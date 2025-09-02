@@ -41,7 +41,7 @@ const Hero = () => {
 
           {/* Image Container - Added animate-slide-in-right animation */}
           <div className="md:flex-1 md:max-w-[600px] animate-slide-in-right">
-            <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-500">
+            <div className="relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden transition-shadow duration-500">
               <img
                 src={heroImage}
                 alt="Andi Shkodra"

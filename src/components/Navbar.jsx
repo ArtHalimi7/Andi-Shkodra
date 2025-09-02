@@ -258,7 +258,7 @@ const Navbar = () => {
             }`}></span>
           </button>
 
-          {/* Mobile Language Selector */}
+          {/* Mobile Language Selector - FIXED */}
           <div className="mt-4 px-4 py-3 border-t border-gray-200">
             <div className="flex justify-center space-x-4">
               <button
@@ -267,7 +267,7 @@ const Navbar = () => {
                   language === 'sq' ? 'bg-red-600 text-white' : 'text-gray-600 hover:text-red-600 border border-gray-300'
                 }`}
               >
-                {t('language')}
+                {translations['sq']['language']}
               </button>
               <button
                 onClick={() => setLanguage('en')}
