@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 const ContactInfoItem = ({ icon, title, content }) => {
   return (
@@ -17,6 +18,7 @@ const ContactInfoItem = ({ icon, title, content }) => {
 };
 
 const Kontakti = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     emri: '',
     email: '',
@@ -46,7 +48,7 @@ const Kontakti = () => {
     });
     
     // Show success message
-    alert('Faleminderit për mesazhin tuaj! Do t\'ju kontaktojmë së shpejti.');
+    alert(t('contact.successMessage'));
   };
 
   return (
@@ -54,15 +56,15 @@ const Kontakti = () => {
       {/* Header Section */}
       <div className="text-center">
         <div className="inline-block px-3 py-1 rounded-full border border-red-500 text-red-500 text-sm mb-4">
-          Kontakti
+          {t('contact.label')}
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-          Kontaktoni
+          {t('contact.title')}
         </h1>
         
         <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-2">
-          Jam këtu për ju. Lidhuni me mua për çdo pyetje apo sugjerim.
+          {t('contact.description')}
         </p>
       </div>
       
@@ -74,7 +76,7 @@ const Kontakti = () => {
             {/* Inline fields for EMRI and EMAIL */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="flex-1">
-                <label htmlFor="emri" className="block text-gray-700 font-medium mb-2">EMRI</label>
+                <label htmlFor="emri" className="block text-gray-700 font-medium mb-2">{t('contact.form.name').toUpperCase()}</label>
                 <input 
                   type="text" 
                   id="emri" 
@@ -82,13 +84,13 @@ const Kontakti = () => {
                   value={formData.emri}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                  placeholder="Emri juaj"
+                  placeholder={t('contact.form.namePlaceholder')}
                   required
                 />
               </div>
               
               <div className="flex-1">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">EMAIL</label>
+                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">{t('contact.form.email').toUpperCase()}</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -96,7 +98,7 @@ const Kontakti = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                  placeholder="email@example.com"
+                  placeholder={t('contact.form.emailPlaceholder')}
                   required
                 />
               </div>
@@ -104,7 +106,7 @@ const Kontakti = () => {
             
             {/* SUBJEKTI field */}
             <div className="mb-6">
-              <label htmlFor="subjekti" className="block text-gray-700 font-medium mb-2">SUBJEKTI</label>
+              <label htmlFor="subjekti" className="block text-gray-700 font-medium mb-2">{t('contact.form.subject').toUpperCase()}</label>
               <input 
                 type="text" 
                 id="subjekti" 
@@ -112,21 +114,21 @@ const Kontakti = () => {
                 value={formData.subjekti}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                placeholder="Subjekti i mesazhit"
+                placeholder={t('contact.form.subjectPlaceholder')}
                 required
               />
             </div>
             
             {/* MESAZHI field */}
             <div className="mb-8">
-              <label htmlFor="mesazhi" className="block text-gray-700 font-medium mb-2">MESAZHI</label>
+              <label htmlFor="mesazhi" className="block text-gray-700 font-medium mb-2">{t('contact.form.message').toUpperCase()}</label>
               <textarea 
                 id="mesazhi" 
                 name="mesazhi" 
                 value={formData.mesazhi}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                placeholder="Shkruani mesazhin tuaj këtu..."
+                placeholder={t('contact.form.messagePlaceholder')}
                 rows="6"
                 required
               ></textarea>
@@ -138,7 +140,7 @@ const Kontakti = () => {
                 type="submit"
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-lg"
               >
-                Dërgo Mesazhin
+                {t('contact.form.submit')}
               </button>
             </div>
           </form>
@@ -146,7 +148,7 @@ const Kontakti = () => {
         
         {/* Contact Information Sidebar - Below form on mobile, beside form on desktop */}
         <div className="order-2 lg:order-2 bg-white rounded-lg shadow-sm p-6 sm:p-8 mt-0">
-          <h2 className="text-2xl font-semibold mb-6 text-gray-900 border-b pb-3">Informacione Kontakti</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-gray-900 border-b pb-3">{t('contact.info.title')}</h2>
           
           <ContactInfoItem 
             icon={
@@ -154,8 +156,8 @@ const Kontakti = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             }
-            title="Telefon"
-            content="+383 44 123 456"
+            title={t('contact.info.phone')}
+            content={t('contact.info.phoneNumber')}
           />
           
           <ContactInfoItem 
@@ -164,8 +166,8 @@ const Kontakti = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             }
-            title="Email"
-            content="andi.shkodra@email.com"
+            title={t('contact.info.email')}
+            content={t('contact.info.emailAddress')}
           />
           
           <ContactInfoItem 
@@ -175,13 +177,13 @@ const Kontakti = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             }
-            title="Lokacioni"
-            content="Gjilan, Kosovë"
+            title={t('contact.info.location')}
+            content={t('contact.info.locationDetails')}
           />
           
           {/* Social Media Links - Centered */}
           <div className="mt-8 pt-4 border-t text-center">
-            <h3 className="text-lg font-medium mb-4 text-center">Na ndiqni</h3>
+            <h3 className="text-lg font-medium mb-4 text-center">{t('contact.social.title')}</h3>
             <div className="flex justify-center space-x-4">
               {/* Facebook */}
               <a href="#" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">

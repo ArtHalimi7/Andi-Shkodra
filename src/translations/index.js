@@ -78,12 +78,36 @@ export const translations = {
     'platform.item6.title': 'Ekonomia Lokale',
     'platform.item6.description': 'Promovimi i bizneseve lokale dhe krijimi i vendeve të reja të punës.',
     
+    // Motto section
+    'motto.title': 'Përkushtim ndaj Komunitetit',
+    'motto.description': 'Besoj se së bashku mund të ndërtojmë një komunitet më të fortë, më transparent dhe më të përfshirë. Çdo vendim do të merret duke iu konsultuar me ju, qytetarët, sepse ju jeni ata që e dini më mirë se çfarë i duhet komunitetit tonë.',
+    'motto.quote': 'Së bashku për një të ardhme më të mirë',
+    
     // Contact section
-    'contact.title': 'Na kontaktoni',
-    'contact.name': 'Emri',
-    'contact.email': 'Email',
-    'contact.message': 'Mesazhi',
-    'contact.send': 'Dërgo',
+    'contact.label': 'Kontakti',
+    'contact.title': 'Kontaktoni',
+    'contact.description': 'Jam këtu për ju. Lidhuni me mua për çdo pyetje apo sugjerim.',
+    
+    'contact.form.name': 'Emri',
+    'contact.form.namePlaceholder': 'Emri juaj',
+    'contact.form.email': 'Email',
+    'contact.form.emailPlaceholder': 'email@example.com',
+    'contact.form.subject': 'Subjekti',
+    'contact.form.subjectPlaceholder': 'Subjekti i mesazhit',
+    'contact.form.message': 'Mesazhi',
+    'contact.form.messagePlaceholder': 'Shkruani mesazhin tuaj këtu...',
+    'contact.form.submit': 'Dërgo Mesazhin',
+    'contact.successMessage': 'Faleminderit për mesazhin tuaj! Do t\'ju kontaktojmë së shpejti.',
+    
+    'contact.info.title': 'Informacione Kontakti',
+    'contact.info.phone': 'Telefon',
+    'contact.info.phoneNumber': '+383 44 123 456',
+    'contact.info.email': 'Email',
+    'contact.info.emailAddress': 'andi.shkodra@email.com',
+    'contact.info.location': 'Lokacioni',
+    'contact.info.locationDetails': 'Gjilan, Kosovë',
+    
+    'contact.social.title': 'Na ndiqni',
     
     // Language
     'language': 'Shqip',
@@ -167,12 +191,36 @@ export const translations = {
     'platform.item6.title': 'Local Economy',
     'platform.item6.description': 'Promotion of local businesses and creation of new job opportunities.',
     
+    // Motto section
+    'motto.title': 'Commitment to Community',
+    'motto.description': 'I believe that together we can build a stronger, more transparent and more inclusive community. Every decision will be made in consultation with you, the citizens, because you know best what our community needs.',
+    'motto.quote': 'Together for a better future',
+    
     // Contact section
-    'contact.title': 'Contact us',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.message': 'Message',
-    'contact.send': 'Send',
+    'contact.label': 'Contact',
+    'contact.title': 'Contact',
+    'contact.description': 'I am here for you. Connect with me for any questions or suggestions.',
+    
+    'contact.form.name': 'Name',
+    'contact.form.namePlaceholder': 'Your name',
+    'contact.form.email': 'Email',
+    'contact.form.emailPlaceholder': 'email@example.com',
+    'contact.form.subject': 'Subject',
+    'contact.form.subjectPlaceholder': 'Message subject',
+    'contact.form.message': 'Message',
+    'contact.form.messagePlaceholder': 'Write your message here...',
+    'contact.form.submit': 'Send Message',
+    'contact.successMessage': 'Thank you for your message! We will contact you soon.',
+    
+    'contact.info.title': 'Contact Information',
+    'contact.info.phone': 'Phone',
+    'contact.info.phoneNumber': '+383 44 123 456',
+    'contact.info.email': 'Email',
+    'contact.info.emailAddress': 'andi.shkodra@email.com',
+    'contact.info.location': 'Location',
+    'contact.info.locationDetails': 'Gjilan, Kosovo',
+    
+    'contact.social.title': 'Follow Us',
     
     // Language
     'language': 'English',

@@ -1,7 +1,10 @@
 import React from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 import mottoBg from '../images/mottobg.jpeg'
 
 const Motto = () => {
+  const { t } = useTranslation()
+  
   return (
       <div className="my-12 sm:my-16 w-full mx-auto">
         <div 
@@ -14,17 +17,15 @@ const Motto = () => {
         >
           <div className="relative z-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Përkushtim ndaj Komunitetit
+              {t('motto.title')}
             </h2>
             
             <p className="text-gray-100 mb-6 sm:text-lg max-w-3xl mx-auto">
-              Besoj se së bashku mund të ndërtojmë një komunitet më të fortë, më transparent dhe më të
-              përfshirë. Çdo vendim do të merret duke iu konsultuar me ju, qytetarët, sepse ju jeni ata që e dini
-              më mirë se çfarë i duhet komunitetit tonë.
+              {t('motto.description')}
             </p>
             
             <p className="text-red-300 font-medium text-xl sm:text-2xl italic">
-              "Së bashku për një të ardhme më të mirë"
+              "{t('motto.quote')}"
             </p>
           </div>
         </div>
