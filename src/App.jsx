@@ -9,6 +9,7 @@ import Footer from './components/Footer.jsx';
 import VideoDisplay from './components/VideoDisplay.jsx';
 import Timeline from './components/Timeline.jsx';
 import VotingNumber from './components/VotingNumber.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
         <Footer />
       </div>
       <VotingNumber />
+      <ScrollToTop />
     </main>
   );
 }
