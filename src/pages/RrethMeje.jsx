@@ -1,20 +1,23 @@
 import React from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 const RrethMeje = () => {
+  const { t } = useTranslation()
+  
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Header Section */}
       <div className="text-center mb-12">
         <div className="inline-block px-4 py-1 rounded-full border border-red-500 text-red-500 mb-4">
-          Biografia
+          {t('about.biography')}
         </div>
         
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Rreth Meje
+          {t('about.title')}
         </h1>
         
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Student i pasionuar i shkencave politike me përvojë në udhëheqje, koordinim ekipor dhe fuqizim të rinisë.
+          {t('about.shortDescription')}
         </p>
       </div>
       
@@ -24,41 +27,41 @@ const RrethMeje = () => {
         <div className="flex-1">
           <div className="mb-8">
             <p className="mb-4">
-              Jam student i shkencave politike me pasion për udhëheqjen, koordinimin e ekipit dhe fuqizimin e rinisë. Si kryetar i një organizate rinore, kam fituar përvojë të vlefshme në menaxhimin e projekteve, avokatimin dhe fjalimin publik.
+              {t('about.paragraph1')}
             </p>
             <p className="mb-4">
-              Jam i përkushtuar ndaj krijimit të një ndikimi pozitiv në shoqëri dhe jam duke kërkuar mundësi që më lejojnë të rritem si udhëheqës duke kontribuar në iniciativa me kuptim.
+              {t('about.paragraph2')}
             </p>
             <p className="mb-4">
-              Përmes punës sime në Zyrën e Çështjeve Studentore në UBT dhe udhëheqjes së organizatës "Fuqia e Bashkimit Rinor", kam zhvilluar aftësi të forta organizative dhe komunikuese.
+              {t('about.paragraph3')}
             </p>
           </div>
           
           <div>
-            <h2 className="text-2xl font-semibold mb-6">Përvojat Kryesore</h2>
+            <h2 className="text-2xl font-semibold mb-6">{t('about.keyExperiences')}</h2>
             <div className="space-y-6">
               <div className="relative pl-6 border-l-4 border-red-500">
-                <h3 className="font-medium">Student Affairs Office - UBT</h3>
+                <h3 className="font-medium">{t('about.experience1.title')}</h3>
                 <span className="inline-block px-2 py-0.5 text-xs bg-red-50 text-red-500 rounded-full border border-red-200 mt-1 mb-2">
-                  Prill 2024 - Aktual
+                  {t('about.experience1.period')}
                 </span>
-                <p className="mt-1">Mbikëqyrja e implementimit të planit të rekrutimit dhe strategjisë së regjistrimit të studentëve.</p>
+                <p className="mt-1">{t('about.experience1.description')}</p>
               </div>
               
               <div className="relative pl-6 border-l-4 border-red-500">
-                <h3 className="font-medium">Kryetar i 'Fuqia e Bashkimit Rinor'</h3>
+                <h3 className="font-medium">{t('about.experience2.title')}</h3>
                 <span className="inline-block px-2 py-0.5 text-xs bg-red-50 text-red-500 rounded-full border border-red-200 mt-1 mb-2">
-                  Shkurt 2020 - Aktual
+                  {t('about.experience2.period')}
                 </span>
-                <p className="mt-1">Udhëheqja e organizatës rinore dhe koordinimi i projekteve arsimore, kulturore dhe sportive.</p>
+                <p className="mt-1">{t('about.experience2.description')}</p>
               </div>
               
               <div className="relative pl-6 border-l-4 border-red-500">
-                <h3 className="font-medium">Vullnetar #SkaMaLehte</h3>
+                <h3 className="font-medium">{t('about.experience3.title')}</h3>
                 <span className="inline-block px-2 py-0.5 text-xs bg-red-50 text-red-500 rounded-full border border-red-200 mt-1 mb-2">
-                  Mars - Nëntor 2020
+                  {t('about.experience3.period')}
                 </span>
-                <p className="mt-1">Mbështetja e studentëve gjatë pandemisë COVID-19 në bashkëpunim me Ambasadën Japoneze.</p>
+                <p className="mt-1">{t('about.experience3.description')}</p>
               </div>
             </div>
           </div>
@@ -66,7 +69,7 @@ const RrethMeje = () => {
         
         {/* Right Column - New Section from Image */}
         <div className="flex-1">
-          <h2 className="text-2xl font-semibold mb-6 text-center">Arsimimi & Përvojat</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-center">{t('about.educationExperience')}</h2>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="bg-red-50 rounded-full p-3">
@@ -76,9 +79,9 @@ const RrethMeje = () => {
                 </svg>
               </div>
               <div className="border-l-4 pl-4">
-                <h3 className="font-medium">Shkenca Politike - UBT</h3>
+                <h3 className="font-medium">{t('about.education.title')}</h3>
                 <span className="inline-block px-2 py-0.5 text-xs bg-red-50 text-red-500 rounded-full border border-red-200 mt-1">
-                  Tetor 2022 - Aktual
+                  {t('about.education.period')}
                 </span>
               </div>
             </div>
@@ -90,8 +93,8 @@ const RrethMeje = () => {
                 </svg>
               </div>
               <div className="border-l-4 pl-4">
-                <h3 className="font-medium">Kryetar Organizate</h3>
-                <p className="text-sm text-gray-500">Fuqia e Bashkimit Rinor</p>
+                <h3 className="font-medium">{t('about.leadership.title')}</h3>
+                <p className="text-sm text-gray-500">{t('about.leadership.organization')}</p>
               </div>
             </div>
             
@@ -102,8 +105,8 @@ const RrethMeje = () => {
                 </svg>
               </div>
               <div className="border-l-4  pl-4">
-                <h3 className="font-medium">Vullnetar i Vitit</h3>
-                <p className="text-sm text-gray-500">LIZA-R 2022</p>
+                <h3 className="font-medium">{t('about.award.title')}</h3>
+                <p className="text-sm text-gray-500">{t('about.award.organization')}</p>
               </div>
             </div>
             
@@ -114,8 +117,8 @@ const RrethMeje = () => {
                 </svg>
               </div>
               <div className="border-l-4 pl-4">
-                <h3 className="font-medium">5+ Vite Përvojë</h3>
-                <p className="text-sm text-gray-500">Udhëheqje dhe Koordinim</p>
+                <h3 className="font-medium">{t('about.experience.title')}</h3>
+                <p className="text-sm text-gray-500">{t('about.experience.description')}</p>
               </div>
             </div>
           </div>
@@ -123,14 +126,14 @@ const RrethMeje = () => {
           {/* Statistics Section - Updated for mobile centering */}
           <div className="mt-10 space-y-6 -mx-[130px] ml-[1px] md:mx-0">
             <div className="bg-red-600 text-white p-7 rounded-lg text-center shadow-md mx-auto max-w-md md:max-w-none">
-              <h2 className="text-4xl font-bold mb-3">Bachelor</h2>
-              <p className="text-base mb-1">Shkenca Politike - UBT</p>
+              <h2 className="text-4xl font-bold mb-3">{t('about.stats.degree')}</h2>
+              <p className="text-base mb-1">{t('about.stats.degreeDetails')}</p>
               <div className="my-6 border-t border-red-400 opacity-50"></div>
-              <h2 className="text-4xl font-bold mb-3 mt-6">8+</h2>
-              <p className="text-base mb-1">Çertifikata & Trajnime</p>
+              <h2 className="text-4xl font-bold mb-3 mt-6">{t('about.stats.certificates.count')}</h2>
+              <p className="text-base mb-1">{t('about.stats.certificates.text')}</p>
               <div className="my-6 border-t border-red-400 opacity-50"></div>
-              <h2 className="text-4xl font-bold mb-3 mt-6">10+</h2>
-              <p className="text-base">Projekte të Realizuara</p>
+              <h2 className="text-4xl font-bold mb-3 mt-6">{t('about.stats.projects.count')}</h2>
+              <p className="text-base">{t('about.stats.projects.text')}</p>
             </div>
           </div>
         </div>
