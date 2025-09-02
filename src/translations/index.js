@@ -80,7 +80,7 @@ export const translations = {
     
     // Motto section
     'motto.title': 'Përkushtim ndaj Komunitetit',
-    'motto.description': 'Besoj se së bashku mund të ndërtojmë një komunitet më të fortë, më transparent dhe më të përfshirë. Çdo vendim do të merret duke iu konsultuar me ju, qytetarët, sepse ju jeni ata që e dini më mirë se çfarë i duhet komunitetit tonë.',
+    'motto.description': 'Së bashku mund të ndërtojmë një komunitet më të fortë, më transparent dhe më të përfshirë. Çdo vendim do të merret duke iu konsultuar me ju, qytetarët, sepse ju jeni ata që e dini më mirë se çfarë i duhet komunitetit tonë.',
     'motto.quote': 'Së bashku për një të ardhme më të mirë',
     
     // Contact section
@@ -201,7 +201,7 @@ export const translations = {
     
     // Motto section
     'motto.title': 'Commitment to Community',
-    'motto.description': 'I believe that together we can build a stronger, more transparent and more inclusive community. Every decision will be made in consultation with you, the citizens, because you know best what our community needs.',
+    'motto.description': 'Together we can build a stronger, more transparent and more inclusive community. Every decision will be made in consultation with you, the citizens, because you know best what our community needs.',
     'motto.quote': 'Together for a better future',
     
     // Contact section
