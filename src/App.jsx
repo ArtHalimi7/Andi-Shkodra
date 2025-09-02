@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx';
 import RrethMeje from './pages/RrethMeje.jsx';
 import Platforma from './pages/Platforma.jsx';
 import Kontakti from './pages/Kontakti.jsx';
+import Motto from './components/Motto.jsx';
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
       </div>
       <div id="platforma">
         <Platforma />
+      </div>
+      <div id="motto">
+        <Motto />
       </div>
       <div id="kontakti">
         <Kontakti />

@@ -50,7 +50,7 @@ const Kontakti = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10 sm:py-16 mt-[-100px]" id="kontakti">
+    <div className="container mx-auto px-4 py-10 sm:py-16 mt-[-90px]" id="kontakti">
       {/* Header Section */}
       <div className="text-center">
         <div className="inline-block px-3 py-1 rounded-full border border-red-500 text-red-500 text-sm mb-4">
