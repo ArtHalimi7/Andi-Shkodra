@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import logo from "../images/vvlogo.png"
+import { translations } from '../translations'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'sq')
+
+  // Translation helper function
+  const t = (key) => translations[language][key] || key
+
+  // Save language preference to localStorage
+  useEffect(() => {
+    localStorage.setItem('language', language)
+    // Dispatch an event to notify other components of language change
+    window.dispatchEvent(new Event('languagechange'))
+  }, [language])
 
   useEffect(() => {
     const observerOptions = {
@@ -67,20 +79,20 @@ const Navbar = () => {
             </div>
             <div className="ml-3">
               <span className="text-xl font-bold text-red-600">Andi Shkodra</span>
-              <div className="text-sm text-gray-600">Kandidat për Kuvendin Komunal</div>
+              <div className="text-sm text-gray-600">{t('candidate')}</div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-center space-x-4">
               <button
                 onClick={() => scrollToSection('rreth-meje')}
                 className={`px-3 py-2 text-sm font-medium relative group ${
                   activeSection === 'rreth-meje' ? 'text-red-600' : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
-                <span>Rreth meje</span>
+                <span>{t('about')}</span>
                 <span className={`absolute bottom-1.5 left-3 h-0.5 bg-red-600 transition-all duration-300 ${
                   activeSection === 'rreth-meje' ? 'w-[calc(100%-24px)]' : 'w-0 group-hover:w-[calc(100%-24px)]'
                 }`}></span>
@@ -91,7 +103,7 @@ const Navbar = () => {
                   activeSection === 'platforma' ? 'text-red-600' : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
-                <span>Platforma</span>
+                <span>{t('platform')}</span>
                 <span className={`absolute bottom-1.5 left-3 h-0.5 bg-red-600 transition-all duration-300 ${
                   activeSection === 'platforma' ? 'w-[calc(100%-24px)]' : 'w-0 group-hover:w-[calc(100%-24px)]'
                 }`}></span>
@@ -102,11 +114,31 @@ const Navbar = () => {
                   activeSection === 'kontakti' ? 'text-red-600' : 'text-gray-700 hover:text-gray-900'
                 }`}
               >
-                <span>Kontakti</span>
+                <span>{t('contact')}</span>
                 <span className={`absolute bottom-1.5 left-3 h-0.5 bg-red-600 transition-all duration-300 ${
                   activeSection === 'kontakti' ? 'w-[calc(100%-24px)]' : 'w-0 group-hover:w-[calc(100%-24px)]'
                 }`}></span>
               </button>
+
+              {/* Language Selector */}
+              <div className="flex items-center space-x-2 ml-4 border-l pl-4 border-gray-200">
+                <button
+                  onClick={() => setLanguage('sq')}
+                  className={`px-2 py-1 text-sm font-medium rounded ${
+                    language === 'sq' ? 'bg-red-600 text-white' : 'text-gray-600 hover:text-red-600'
+                  }`}
+                >
+                  SQ
+                </button>
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 text-sm font-medium rounded ${
+                    language === 'en' ? 'bg-red-600 text-white' : 'text-gray-600 hover:text-red-600'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
             </div>
           </div>
 
@@ -187,7 +219,7 @@ const Navbar = () => {
               <svg className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              Rreth meje
+              {t('about')}
             </div>
             <span className={`absolute bottom-0 left-4 h-0.5 bg-red-600 transition-all duration-300 ${
               activeSection === 'rreth-meje' ? 'w-[calc(100%-32px)]' : 'w-0 group-hover:w-[calc(100%-32px)]'
@@ -203,7 +235,7 @@ const Navbar = () => {
               <svg className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
-              Platforma
+              {t('platform')}
             </div>
             <span className={`absolute bottom-0 left-4 h-0.5 bg-red-600 transition-all duration-300 ${
               activeSection === 'platforma' ? 'w-[calc(100%-32px)]' : 'w-0 group-hover:w-[calc(100%-32px)]'
@@ -219,12 +251,34 @@ const Navbar = () => {
               <svg className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              Kontakti
+              {t('contact')}
             </div>
             <span className={`absolute bottom-0 left-4 h-0.5 bg-red-600 transition-all duration-300 ${
               activeSection === 'kontakti' ? 'w-[calc(100%-32px)]' : 'w-0 group-hover:w-[calc(100%-32px)]'
             }`}></span>
           </button>
+
+          {/* Mobile Language Selector */}
+          <div className="mt-4 px-4 py-3 border-t border-gray-200">
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={() => setLanguage('sq')}
+                className={`px-4 py-2 text-sm font-medium rounded-md ${
+                  language === 'sq' ? 'bg-red-600 text-white' : 'text-gray-600 hover:text-red-600 border border-gray-300'
+                }`}
+              >
+                {t('language')}
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-4 py-2 text-sm font-medium rounded-md ${
+                  language === 'en' ? 'bg-red-600 text-white' : 'text-gray-600 hover:text-red-600 border border-gray-300'
+                }`}
+              >
+                {translations['en']['language']}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
