@@ -123,8 +123,8 @@ const RrethMeje = () => {
             </div>
           </div>
           
-          {/* Statistics Section - Updated for mobile centering */}
-          <div className="mt-10 space-y-6 -mx-[130px] ml-[1px] md:mx-0">
+          {/* Statistics Section - Updated for mobile centering and hiding on mobile */}
+          <div className="mt-10 space-y-6 -mx-[130px] ml-[1px] md:mx-0 hidden md:block">
             <div className="bg-red-600 text-white p-7 rounded-lg text-center shadow-md mx-auto max-w-md md:max-w-none">
               <h2 className="text-4xl font-bold mb-3">{t('about.stats.degree')}</h2>
               <p className="text-base mb-1">{t('about.stats.degreeDetails')}</p>
