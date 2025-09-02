@@ -12,7 +12,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-center md:text-left mb-12 md:mb-0 md:flex-1 max-w-xl md:max-w-none mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Andi Shkodra
+              Andi <span className="text-red-600">Shkodra</span>
             </h1>
             
             <div className="inline-block bg-red-100 text-red-600 px-4 py-2 rounded-full font-medium mb-6">
