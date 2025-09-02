@@ -194,7 +194,7 @@ export const translations = {
     'about': 'About me',
     'platform': 'Platform',
     'contact': 'Contact',
-    'candidate': 'Candidate for Municipal Assembly',
+    'candidate': 'Candidate for Municipal Assembly of Gjilan',
     
     // Home section
     'hero.description': 'A dedicated advocate for change, committed to serving the community and working towards a better future for all citizens of our municipality.',
