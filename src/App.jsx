@@ -8,6 +8,7 @@ import Motto from './components/Motto.jsx';
 import Footer from './components/Footer.jsx';
 import VideoDisplay from './components/VideoDisplay.jsx';
 
+
 const App = () => {
   return (
     <main className='background1'>

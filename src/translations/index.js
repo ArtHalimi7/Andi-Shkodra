@@ -22,11 +22,11 @@ export const translations = {
     'about.keyExperiences': 'Përvojat Kryesore',
     
     'about.experience1.title': 'Student Affairs Office - UBT',
-    'about.experience1.period': 'Prill 2024 - Aktual',
+    'about.experience1.period': 'Prill 2024 - Janar 2025',
     'about.experience1.description': 'Mbikëqyrja e implementimit të planit të rekrutimit dhe strategjisë së regjistrimit të studentëve.',
     
     'about.experience2.title': 'Kryetar i \'Fuqia e Bashkimit Rinor\'',
-    'about.experience2.period': 'Shkurt 2020 - Aktual',
+    'about.experience2.period': 'Shkurt 2020 - Janar 2025',
     'about.experience2.description': 'Udhëheqja e organizatës rinore dhe koordinimi i projekteve arsimore, kulturore dhe sportive.',
     
     'about.experience3.title': 'Vullnetar #SkaMaLehte',
@@ -36,7 +36,7 @@ export const translations = {
     'about.educationExperience': 'Arsimimi & Përvojat',
     
     'about.education.title': 'Shkenca Politike - UBT',
-    'about.education.period': 'Tetor 2022 - Aktual',
+    'about.education.period': 'Tetor 2022 - Janar 2025',
     
     'about.leadership.title': 'Kryetar Organizate',
     'about.leadership.organization': 'Fuqia e Bashkimit Rinor',
@@ -53,6 +53,10 @@ export const translations = {
     'about.stats.certificates.text': 'Çertifikata & Trajnime',
     'about.stats.projects.count': '10+',
     'about.stats.projects.text': 'Projekte të Realizuara',
+    
+    'about.honorsAndAwards': 'Nderimet dhe Çmimet',
+    'about.achievementsTitle': 'Arritjet dhe Certifikimet',
+    'about.achievementsDescription': 'Certifikatat, trajnimet dhe çmimet që kam fituar gjatë karrierës sime profesionale dhe aktivizmit shoqëror.',
     
     // Platform section
     'platform.label': 'Platforma',
@@ -123,6 +127,39 @@ export const translations = {
     
     // Language
     'language': 'Shqip',
+    
+    // About section honors and awards
+    'about.certificate1.date': '17 Nëntor 2020',
+    'about.certificate1.organization': 'Ministria e Kulturës, Rinisë dhe Sportit',
+    'about.certificate1.description': 'Certifikatë e dhënë nga Ministria e Kulturës, Rinisë dhe Sportit për përfundimin me sukses të orëve të punës vullnetare, në bashkëpunim me Innovations Lab Kosovo, që shërbeu si ofrues i punës vullnetare për fushatën #SkaMaLehte.',
+    
+    'about.certificate2.date': '23 Shtator 2022',
+    'about.certificate2.organization': 'Unicef',
+    'about.certificate2.description': 'Certifikatë për përfundimin me sukses të punëtorisë profesionale "RINIA PËR AJËR TË PASTËR".',
+    
+    'about.certificate3.date': '21 Mars 2021',
+    'about.certificate3.organization': 'UKaid',
+    'about.certificate3.description': 'Certifikatë për përfundimin me sukses të punëtorisë profesionale RADAR për Mendimin Kritik dhe Edukimin Mediatik, si pjesë e projektit "Amplifikimi i Zërave Lokalë për Zhvillim të Barabartë".',
+    
+    'about.certificate4.date': '2022',
+    'about.certificate4.organization': 'Pen (Peer Educators Network) dhe Unicef',
+    'about.certificate4.description': 'Certifikatë për pjesëmarrje aktive në Bootcamp të Sipërmarrjes, si pjesë e "Programit të Edukimit për Sipërmarrjen Rinore".',
+    
+    'about.certificate5.date': 'Korrik 2023',
+    'about.certificate5.organization': 'BIRN, ATRC & LIZA-R',
+    'about.certificate5.description': 'Certifikatë për përfundimin me sukses të trajnimit 5-ditor si pjesë e projektit "Së bashku për Mirëqenien e Punëtorëve të Sektorit Privat" për temat: E Drejta e Punës, Siguria në Vendin e Punës, Avokimi, Shëndeti dhe Siguria në Punë, Lidershipi, Puna në Ekip, Komunikimi Efektiv, Monitorimi.',
+    
+    'about.certificate6.date': 'Tetor 2020',
+    'about.certificate6.organization': '"Fuqia e Bashkimit Rinor" - FBR',
+    'about.certificate6.description': 'Pjesëmarrje në trajnimin për përgatitjen e dokumenteve ligjore.',
+    
+    'about.award1.date': 'Dhjetor 2022',
+    'about.award1.organization': 'LIZA-R',
+    'about.award1.description': 'Vullnetar i Vitit 2022',
+    
+    'about.certificate7.date': 'Shkurt 2022',
+    'about.certificate7.organization': 'LIZA-R',
+    'about.certificate7.description': 'Trajnim për: Promovimin e vullnetarizmit dhe përfshirjen e rinisë së margjinalizuar, financuar nga MKRS e Kosovës.',
   },
   en: {
     // Navbar
@@ -147,11 +184,11 @@ export const translations = {
     'about.keyExperiences': 'Key Experiences',
     
     'about.experience1.title': 'Student Affairs Office - UBT',
-    'about.experience1.period': 'April 2024 - Present',
+    'about.experience1.period': 'April 2024 - January 2025',
     'about.experience1.description': 'Overseeing the implementation of recruitment plans and student enrollment strategies.',
     
     'about.experience2.title': 'Chair of \'Youth Unity Power\'',
-    'about.experience2.period': 'February 2020 - Present',
+    'about.experience2.period': 'February 2020 - January 2025',
     'about.experience2.description': 'Leading the youth organization and coordinating educational, cultural, and sports projects.',
     
     'about.experience3.title': 'Volunteer #SkaMaLehte',
@@ -161,8 +198,8 @@ export const translations = {
     'about.educationExperience': 'Education & Experience',
     
     'about.education.title': 'Political Science - UBT',
-    'about.education.period': 'October 2022 - Present',
-    
+    'about.education.period': 'October 2022 - January 2025',
+
     'about.leadership.title': 'Organization Chair',
     'about.leadership.organization': 'Youth Unity Power',
     
@@ -178,6 +215,10 @@ export const translations = {
     'about.stats.certificates.text': 'Certificates & Training',
     'about.stats.projects.count': '10+',
     'about.stats.projects.text': 'Projects Completed',
+    
+    'about.honorsAndAwards': 'Honors and Awards',
+    'about.achievementsTitle': 'Achievements and Certifications',
+    'about.achievementsDescription': 'Certificates, trainings, and awards I have earned throughout my professional career and social activism.',
     
     // Platform section
     'platform.label': 'Platform',
@@ -248,5 +289,38 @@ export const translations = {
     
     // Language
     'language': 'English',
+    
+    // About section honors and awards
+    'about.certificate1.date': '17 Nov 2020',
+    'about.certificate1.organization': 'Ministry of Culture, Youth and Sport',
+    'about.certificate1.description': 'Certificate awarded by the Ministry of Culture, Youth, and Sports for the successful completion of volunteer work hours, in collaboration with Innovations Lab Kosovo, which served as the provider of volunteer work for the #SkaMaLehte campaign.',
+    
+    'about.certificate2.date': '23 Sep 2022',
+    'about.certificate2.organization': 'Unicef',
+    'about.certificate2.description': 'Certificate for successful completion of the professional workshop "YOUTH FOR CLEAN AIR".',
+    
+    'about.certificate3.date': '21 Mar 2021',
+    'about.certificate3.organization': 'UKaid',
+    'about.certificate3.description': 'Certificate for the successful completion of the professional RADAR workshop on Critical Thinking and Media Literacy, as part of the "Amplifying Local Voices for Equitable Development" project.',
+    
+    'about.certificate4.date': '2022',
+    'about.certificate4.organization': 'Pen (Peer Educators Network) and Unicef',
+    'about.certificate4.description': 'Certificate for active participation in the Entrepreneurship Bootcamp, as part of the "Youth Entrepreneurship Education Programme".',
+    
+    'about.certificate5.date': 'Jul 2023',
+    'about.certificate5.organization': 'BIRN, ATRC & LIZA-R',
+    'about.certificate5.description': 'Certificate for the successful completion of the 5-day training as part of the project "Together for the Well-being of Private Sector Workers" on Labor Law, Workplace Safety, Advocacy, Health and Safety at Work, Leadership, Teamwork, Effective Communication, Monitoring.',
+    
+    'about.certificate6.date': 'Oct 2020',
+    'about.certificate6.organization': '"Fuqia e Bashkimit Rinor" - FBR',
+    'about.certificate6.description': 'Participation in the training for legal document preparation.',
+    
+    'about.award1.date': 'Dec 2022',
+    'about.award1.organization': 'LIZA-R',
+    'about.award1.description': 'Volunteer of the Year 2022',
+    
+    'about.certificate7.date': 'Feb 2022',
+    'about.certificate7.organization': 'LIZA-R',
+    'about.certificate7.description': 'Training on: Promoting volunteerism and involving marginalized youth, funded by MKRS of Kosovo.',
   }
 };
