@@ -1,71 +1,210 @@
 import React, { useState } from 'react'
-import { useTranslation } from '../hooks/useTranslation'
+
+const ContactInfoItem = ({ icon, title, content }) => {
+  return (
+    <div className="flex flex-col items-center mb-6 text-center">
+      <div className="flex flex-col items-center mb-1">
+        <div className="bg-red-100 rounded-full p-2 mb-1.5">
+          <div className="h-5 w-5 text-red-600">
+            {icon}
+          </div>
+        </div>
+        <h3 className="text-base font-medium">{title}</h3>
+      </div>
+      <p className="text-sm text-gray-700">{content}</p>
+    </div>
+  );
+};
 
 const Kontakti = () => {
-  const { t } = useTranslation()
   const [formData, setFormData] = useState({
-    name: '',
+    emri: '',
     email: '',
-    message: ''
-  })
+    subjekti: '',
+    mesazhi: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // Add your form submission logic here
-    console.log(formData)
-  }
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Here you would typically send the form data to a backend
+    
+    // Reset form after submission
+    setFormData({
+      emri: '',
+      email: '',
+      subjekti: '',
+      mesazhi: ''
+    });
+    
+    // Show success message
+    alert('Faleminderit për mesazhin tuaj! Do t\'ju kontaktojmë së shpejti.');
+  };
 
   return (
-    <div className="pt-20 px-4" id="kontakti">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-gray-900">{t('contact.title')}</h1>
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                {t('contact.name')}
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+    <div className="container mx-auto px-4 py-10 sm:py-16 mt-[-100px]" id="kontakti">
+      {/* Header Section */}
+      <div className="text-center">
+        <div className="inline-block px-3 py-1 rounded-full border border-red-500 text-red-500 text-sm mb-4">
+          Kontakti
+        </div>
+        
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+          Kontaktoni
+        </h1>
+        
+        <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-2">
+          Jam këtu për ju. Lidhuni me mua për çdo pyetje apo sugjerim.
+        </p>
+      </div>
+      
+      {/* Contact Section with Form and Sidebar */}
+      <div className="max-w-6xl mx-auto flex flex-col lg:grid lg:grid-cols-3 gap-8">
+        {/* Contact Form - Takes full width on mobile, 2/3 on desktop */}
+        <div className="order-1 lg:order-1 lg:col-span-2 bg-white rounded-lg shadow-sm p-6 sm:p-8">
+          <form onSubmit={handleSubmit}>
+            {/* Inline fields for EMRI and EMAIL */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex-1">
+                <label htmlFor="emri" className="block text-gray-700 font-medium mb-2">EMRI</label>
+                <input 
+                  type="text" 
+                  id="emri" 
+                  name="emri" 
+                  value={formData.emri}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  placeholder="Emri juaj"
+                  required
+                />
+              </div>
+              
+              <div className="flex-1">
+                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">EMAIL</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                  placeholder="email@example.com"
+                  required
+                />
+              </div>
+            </div>
+            
+            {/* SUBJEKTI field */}
+            <div className="mb-6">
+              <label htmlFor="subjekti" className="block text-gray-700 font-medium mb-2">SUBJEKTI</label>
+              <input 
+                type="text" 
+                id="subjekti" 
+                name="subjekti" 
+                value={formData.subjekti}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                placeholder="Subjekti i mesazhit"
+                required
               />
             </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                {t('contact.email')}
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
+            
+            {/* MESAZHI field */}
+            <div className="mb-8">
+              <label htmlFor="mesazhi" className="block text-gray-700 font-medium mb-2">MESAZHI</label>
+              <textarea 
+                id="mesazhi" 
+                name="mesazhi" 
+                value={formData.mesazhi}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                placeholder="Shkruani mesazhin tuaj këtu..."
+                rows="6"
+                required
+              ></textarea>
             </div>
+            
+            {/* Submit Button */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                {t('contact.message')}
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              />
-            </div>
-            <div>
-              <button
+              <button 
                 type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-lg"
               >
-                {t('contact.send')}
+                Dërgo Mesazhin
               </button>
             </div>
           </form>
+        </div>
+        
+        {/* Contact Information Sidebar - Below form on mobile, beside form on desktop */}
+        <div className="order-2 lg:order-2 bg-white rounded-lg shadow-sm p-6 sm:p-8 mt-0">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-900 border-b pb-3">Informacione Kontakti</h2>
+          
+          <ContactInfoItem 
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            }
+            title="Telefon"
+            content="+383 44 123 456"
+          />
+          
+          <ContactInfoItem 
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            }
+            title="Email"
+            content="andi.shkodra@email.com"
+          />
+          
+          <ContactInfoItem 
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            }
+            title="Lokacioni"
+            content="Gjilan, Kosovë"
+          />
+          
+          {/* Social Media Links - Centered */}
+          <div className="mt-8 pt-4 border-t text-center">
+            <h3 className="text-lg font-medium mb-4 text-center">Na ndiqni</h3>
+            <div className="flex justify-center space-x-4">
+              {/* Facebook */}
+              <a href="#" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                </svg>
+              </a>
+              
+              {/* Instagram */}
+              <a href="#" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              
+              {/* Twitter */}
+              <a href="#" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

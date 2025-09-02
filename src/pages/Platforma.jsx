@@ -5,7 +5,7 @@ const PlatformItem = ({ icon, title, description }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 transition-all hover:shadow-md">
       <div className="flex flex-col items-center">
-        <div className="bg-red-100 rounded-full p-3 sm:p-4 mb-3 sm:mb-4">
+        <div className="bg-red-100 rounded-full p-3 sm:p-4">
           {icon}
         </div>
         <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-center">{title}</h3>
@@ -122,22 +122,6 @@ const Platforma = () => {
             "Së bashku për një të ardhme më të mirë"
           </p>
         </div>
-      </div>
-      
-      {/* Call to Action Section */}
-      <div className="mt-12 sm:mt-20 text-center px-2">
-        <div className="inline-block px-3 py-1 text-sm rounded-full border border-red-500 text-red-500 mb-4 sm:mb-6">
-          Bashkohuni me ne
-        </div>
-        
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Për të ndërtuar një komunitet më të mirë</h2>
-        
-        <button 
-          onClick={() => document.getElementById('kontakti').scrollIntoView({ behavior: 'smooth' })}
-          className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-lg"
-        >
-          Na Kontaktoni
-        </button>
       </div>
     </div>
   )
