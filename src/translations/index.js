@@ -167,7 +167,7 @@ export const translations = {
     'timeline.title': 'Rrugëtimi Im Politik',
     'timeline.description': 'Një vështrim i shkurtër i udhëtimit tim në shërbim të komunitetit dhe angazhimit politik.',
     
-    'timeline.event1.title': 'Kandidatë për Kuvendin Komunal',
+    'timeline.event1.title': 'Kandidat për Kuvendin Komunal',
     'timeline.event1.description': 'Nominim zyrtar si kandidat për Kuvendin Komunal të Gjilanit, përfaqësues i qytetarëve dhe zëri i ndryshimit.',
     
     'timeline.event2.title': 'Kryetar i Organizatës',

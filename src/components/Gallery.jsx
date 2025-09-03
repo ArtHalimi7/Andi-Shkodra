@@ -180,27 +180,7 @@ const Gallery = () => {
           </p>
         </div>
         
-        {/* Gallery Slider Controls */}
-        <div className="flex justify-between items-center mb-6">
-          <button
-            onClick={prevSlide}
-            className="bg-white hover:bg-red-50 text-red-500 p-3 rounded-full shadow-md transition-all duration-300"
-            aria-label="Previous slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="bg-white hover:bg-red-50 text-red-500 p-3 rounded-full shadow-md transition-all duration-300"
-            aria-label="Next slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
+        {/* Gallery Slider Controls - Moved below */}
         
         {/* Gallery Slider */}
         <div className="relative overflow-hidden mb-8" ref={slideContainer}>
@@ -248,6 +228,28 @@ const Gallery = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+
+        {/* Arrow Controls - Added with rounded button design */}
+        <div className="flex justify-center items-center gap-6 mt-5">
+          <button
+            onClick={prevSlide}
+            className="group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
+            aria-label="Previous slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
+            aria-label="Next slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
         </div>
         

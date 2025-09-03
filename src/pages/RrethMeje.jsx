@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 
 const RrethMeje = () => {
@@ -7,8 +7,13 @@ const RrethMeje = () => {
   // State for slider
   const [currentSlide, setCurrentSlide] = useState(0)
   const [slidesToShow, setSlidesToShow] = useState(3)
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
   
-  // Update slides to show based on screen size
+  const slideInterval = useRef(null)
+  const slideContainer = useRef(null)
+  
+  // Update slides to show based on screen size and start auto slideshow
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -25,8 +30,30 @@ const RrethMeje = () => {
     
     // Add event listener
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    
+    // Auto-advance slides
+    startSlideShow()
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      stopSlideShow()
+    }
   }, [])
+  
+  // Start slideshow
+  const startSlideShow = () => {
+    stopSlideShow()
+    slideInterval.current = setInterval(() => {
+      nextSlide()
+    }, 5000) // Change slide every 5 seconds
+  }
+
+  // Stop slideshow
+  const stopSlideShow = () => {
+    if (slideInterval.current) {
+      clearInterval(slideInterval.current)
+    }
+  }
   
   // Certificate data
   const certificates = [
@@ -77,11 +104,45 @@ const RrethMeje = () => {
   const maxSlide = totalSlides - slidesToShow
   
   const nextSlide = () => {
-    setCurrentSlide(current => Math.min(current + 1, maxSlide))
+    setCurrentSlide(prev => {
+      const newSlide = prev === maxSlide ? 0 : prev + 1
+      return Math.max(0, Math.min(newSlide, maxSlide))
+    })
+    stopSlideShow()
+    startSlideShow()
   }
   
   const prevSlide = () => {
-    setCurrentSlide(current => Math.max(current - 1, 0))
+    setCurrentSlide(prev => {
+      const newSlide = prev === 0 ? maxSlide : prev - 1
+      return Math.max(0, Math.min(newSlide, maxSlide))
+    })
+    stopSlideShow()
+    startSlideShow()
+  }
+  
+  // Touch handlers for mobile swiping
+  const handleTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+  
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+  
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > 50
+    const isRightSwipe = distance < -50
+    
+    if (isLeftSwipe) {
+      nextSlide()
+    }
+    if (isRightSwipe) {
+      prevSlide()
+    }
   }
   
   return (
@@ -235,41 +296,21 @@ const RrethMeje = () => {
           </p>
         </div>
         
-        {/* Slider Controls */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-lg font-semibold text-gray-700 hidden md:block">
+        {/* Section Title */}
+        <div className="text-center mb-6">
+          <div className="text-lg font-semibold text-gray-700">
             {t('about.certificatesAndAwards') || 'Certificates & Awards'}
-          </div>
-          
-          <div className="flex gap-3">
-            <button
-              onClick={prevSlide}
-              disabled={currentSlide === 0}
-              className={`p-2 rounded-full border ${currentSlide === 0 ? 'text-gray-400 border-gray-200' : 'text-red-500 border-red-500 hover:bg-red-50'}`}
-              aria-label="Previous slide"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              disabled={currentSlide >= maxSlide}
-              className={`p-2 rounded-full border ${currentSlide >= maxSlide ? 'text-gray-400 border-gray-200' : 'text-red-500 border-red-500 hover:bg-red-50'}`}
-              aria-label="Next slide"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
         </div>
         
         {/* Slider Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden" ref={slideContainer}>
           <div 
-            className="flex transition-transform duration-300 ease-in-out"
+            className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {certificates.map((cert, index) => (
               <div 
@@ -300,16 +341,45 @@ const RrethMeje = () => {
           </div>
         </div>
         
-        {/* Pagination Indicator (optional) */}
-        <div className="flex justify-center mt-6 gap-2">
-          {Array.from({length: maxSlide + 1}).map((_, index) => (
+        {/* Navigation Controls and Pagination */}
+        <div className="flex flex-col items-center mt-6 gap-5">
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2">
+            {Array.from({length: maxSlide + 1}).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setCurrentSlide(index)
+                  stopSlideShow()
+                  startSlideShow()
+                }}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-red-500 scale-110' : 'bg-gray-300 hover:bg-gray-400'}`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          {/* Arrow Controls - Redesigned with just rounded arrow buttons */}
+          <div className="flex justify-center items-center gap-6 mt-2">
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full ${currentSlide === index ? 'bg-red-500' : 'bg-gray-300'}`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+              onClick={prevSlide}
+              className="group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
+              aria-label="Previous slide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="group bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-3 rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
+              aria-label="Next slide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
