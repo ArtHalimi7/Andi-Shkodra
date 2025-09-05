@@ -157,7 +157,7 @@ const VideoDisplay = ({ videoUrl = videoPath, thumbnailUrl, title }) => {
           
           <div className="space-y-4 text-gray-700">
             <p className="text-base md:text-lg">
-              Ky video demonstron procesin e regjistrimit për votuesit që jetojnë jashtë Kosovës. Ndiqni udhëzimet hap pas hapi për të siguruar të drejtën tuaj për të votuar.
+              Kjo video demonstron procesin e regjistrimit për votuesit që jetojnë jashtë Kosovës. Ndiqni udhëzimet hap pas hapi për të siguruar të drejtën tuaj për të votuar.
             </p>
             
             <ul className="list-disc list-inside space-y-2 pl-2 text-left">
